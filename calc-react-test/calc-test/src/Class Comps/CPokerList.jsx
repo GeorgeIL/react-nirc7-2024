@@ -14,22 +14,52 @@ export default class CPokerList extends Component {
     };
   }
 
-  addNewPlayer = () => {
-    const newId = Number(document.getElementById("id").value);
-    const newName = document.getElementById("name").value;
-    const newChips = Number(document.getElementById("chips").value);
+  changeID = (e) => {
+    this.setState({
+      id: Number(e.target.value),
+    });
+  };
 
-    const newPlayer = { id: newId, name: newName, chips: newChips };
+  changeName = (e) => {
+    this.setState({
+      name: e.target.value,
+    });
+  };
+
+  changeChips = (e) => {
+    this.setState({
+      chips: Number(e.target.value),
+    });
+  };
+
+  changeID2 = (e) => {
+    this.setState({
+      id: Number(e.target.value),
+    });
+  };
+
+  changeChips2 = (e) => {
+    this.setState({
+      chips: Number(e.target.value),
+    });
+  };
+
+  addNewPlayer = () => {
+    const newId = this.state.id;
+    const newName = this.state.name;
+    const newChips = this.state.chips;
+
+    console.log(newId);
 
     // Update state with the new player
     this.setState((prevState) => ({
-      activePlayers: [...prevState.activePlayers, newPlayer],
+      activePlayers: [...prevState.activePlayers, { id: newId, name: newName, chips: newChips }],
     }));
   };
 
   modifyPlayer = () => {
-    const newId = Number(document.getElementById("id2").value);
-    const newChips = Number(document.getElementById("chips2").value);
+    const newId = this.state.id;
+    const newChips = this.state.chips;
 
     let temp = this.state.activePlayers;
 
@@ -55,9 +85,9 @@ export default class CPokerList extends Component {
             backgroundColor: "black",
           }}>
           {EHead2}
-          ID: <input type="number" id="id" /> <br />
-          Name: <input type="text" id="name" /> <br />
-          Chips: <input type="number" id="chips" /> <br />
+          ID: <input type="number" onChange={this.changeID} /> <br />
+          Name: <input type="text" onChange={this.changeName} /> <br />
+          Chips: <input type="number" onChange={this.changeChips} /> <br />
           <button
             type="submit"
             style={{
@@ -96,8 +126,8 @@ export default class CPokerList extends Component {
             backgroundColor: "black",
           }}>
           <h1>Add or Remove chips</h1>
-          ID: <input type="number" id="id2" /> <br />
-          Chips: <input type="number" id="chips2" /> <br />
+          ID: <input type="number" onChange={this.changeID2} /> <br />
+          Chips: <input type="number" onChange={this.changeChips2} /> <br />
           <button
             type="submit"
             style={{
