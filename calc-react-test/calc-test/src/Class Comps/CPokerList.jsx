@@ -34,13 +34,13 @@ export default class CPokerList extends Component {
 
   changeID2 = (e) => {
     this.setState({
-      id: Number(e.target.value),
+      idOnChange: Number(e.target.value),
     });
   };
 
   changeChips2 = (e) => {
     this.setState({
-      chips: Number(e.target.value),
+      chipsOnChange: Number(e.target.value),
     });
   };
 
@@ -58,8 +58,8 @@ export default class CPokerList extends Component {
   };
 
   modifyPlayer = () => {
-    const newId = this.state.id;
-    const newChips = this.state.chips;
+    const newId = this.state.idOnChange;
+    const newChips = this.state.chipsOnChange;
 
     let temp = this.state.activePlayers;
 
@@ -127,7 +127,8 @@ export default class CPokerList extends Component {
           }}>
           <h1>Add or Remove chips</h1>
           ID: <input type="number" onChange={this.changeID2} /> <br />
-          Chips: <input type="number" onChange={this.changeChips2} /> <br />
+          Chips: <input type="number" onChange={this.changeChips2} />
+          <br />
           <button
             type="submit"
             style={{

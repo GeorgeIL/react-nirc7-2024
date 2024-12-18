@@ -4,8 +4,8 @@ import CPokerList from './Class Comps/CPokerList'
 function App() {
   return (
     <>
-      <CPokerList />
-      {/* <CCNewPokerClass /> */}
+      {/* <CPokerList /> */}
+      <CCNewPokerClass />
     </>
   );
 }
